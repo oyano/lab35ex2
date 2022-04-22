@@ -1,19 +1,40 @@
 {
-  "posts": [
+  "items": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "CPU",
+      "img": "cpu.jpg",
+      "price": 1600
+    },{
+      "id": 2,
+      "name": "Видеокарты",
+      "img": "videoCards.jpg",
+      "price": 1700
+    },{
+      "id": 3,
+      "name": "RAM",
+      "img": "ram.jpg",
+      "price": 1800
+    },{
+      "id": 4,
+      "name": "Блоки питания",
+      "img": "powerSupplies.jpg",
+      "price": 1900
+    },{
+      "id": 5,
+      "name": "SSD drives",
+      "img": "ssd.jpg",
+      "price": 2000
+    },{
+      "id": 6,
+      "name": "HDD hard drives",
+      "img": "hdd.jpg",
+      "price": 2100
+    },{
+      "id": 7,
+      "name": "Материнские платы",
+      "img": "motherboard.jpg",
+      "price": 2200
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
