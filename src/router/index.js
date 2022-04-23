@@ -25,6 +25,10 @@ const routes = [
     path: '/catalog/edit/:id',
     name: 'edit',
     component: () => import('../views/EditView')
+  },{
+    path: '/add',
+    name: 'add',
+    component: () => import('../views/AddView')
   },
 ]
 

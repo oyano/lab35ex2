@@ -24,7 +24,7 @@ export default {
   },
   beforeCreate() {
     let id = this.$route.params['id']
-    this.$http.get(`http://localhost:3000/items/?id=${id}`)
+    this.$http.get(`http://localhost:3000/items`, {params: {id: id}})
         .then(res => res.json())
         .then(res => this.item = res)
   },

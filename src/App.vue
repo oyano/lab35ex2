@@ -2,7 +2,8 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/catalog">Catalog</router-link>
+      <router-link to="/catalog">Catalog</router-link> |
+      <router-link to="/add">Add</router-link>
     </nav>
     <router-view/>
   </div>
@@ -63,7 +64,7 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px 0 20px;
+  margin: 10px 20px 10px 20px;
   position: relative;
   cursor: pointer;
   transition: all .2s;
@@ -72,11 +73,15 @@ img{
   background: #42b983;
   border: solid 1px #42b983;
 }
+span{
+  font-size: 18px;
+}
 .text{
   display: inline;
   background-color: white;
   border: none;
   color: #42b983;
+  margin: 0;
 }
 .text:hover{
   background-color: white;
@@ -85,18 +90,18 @@ img{
 .text:after{
   content: '';
   position: absolute;
-  transform: translate(-100px,24px);
+  transform: translate(-71px,18px);
   width: 0%;
-  height: 2px;
+  height: 1px;
   background: #42b983;
   transition: all .2s;
 }
 .text:hover:after{
   content: '';
   position: absolute;
-  transform: translate(-100px,24px);
+  transform: translate(-71px,18px);
   width: 100%;
-  height: 2px;
+  height: 1px;
   background: #42b983;
   transition: all .2s;
 }

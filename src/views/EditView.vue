@@ -1,19 +1,22 @@
 <template>
   <div>
     <div class="ContainerEdit">
-      <div v-for="value in item" :key="value.id" class="ContainerData">
+      <div class="ContainerData"> <!--v-for="item in item" :key="item.id" -->
         <h1>Предпросмотр:</h1>
-        <h2>{{value.name}}</h2>
-        <img :src="getImg(value.img)">
-        <h2>Цена товара: {{value.price}}</h2>
+        <h2>{{item.name}}</h2>
+        <img :src="getImg(item.img)">
+        <h2>Цена товара: {{item.price}}</h2>
       </div>
-      <div v-for="(value,index) in item" :key="index" class="ContainerData">
+      <div  class="ContainerData"> <!--v-for="(item, index) in item" :key="index"-->
         <h1>Редактирование:</h1>
         <label>Название: </label>
-        <input type="text" v-model="value.name" >
+        <input type="text" v-model="item.name" >
         <label>Цена: </label>
-        <input type="number" v-model="value.price" >
+        <input type="number" v-model="item.price" >
       </div>
+    </div>
+    <div class="ContainerBtn">
+      <div class="btn" @click="EditNote(item.id)">Изменить товар</div>
     </div>
     <div class="ContainerBtn">
       <div class="btn" @click="goBack">Назад</div>
@@ -27,12 +30,11 @@ export default {
   name: "EditView",
   data(){
     return{
-      item: Object,
+      item: [],
     }
   },
   created() {
-    this.GetData().then()
-    console.log(this.item)
+    this.GetData()
   },
   methods:{
     goBack(){
@@ -43,10 +45,21 @@ export default {
     },
     async GetData(){
       let id = this.$route.params['id']
-      await this.$http.get(`http://localhost:3000/items/?id=${id}`)
+      await this.$http.get(`http://localhost:3000/items`,{params:{id: id}})
           .then(res => res.json())
-          .then(res => this.item = res)
-    }
+          .then(res => this.item = res[0])
+    },
+    EditNote(id){
+      let note = {
+        id: id,
+        name: this.item.name,
+        img: this.item.img,
+        price: this.item.price
+      }
+      console.log(note)
+      this.$http.put(`http://localhost:3000/items/${id}`, note).then(res => console.log(res));
+      this.$router.push(`/catalog/item/${id}`)
+    },
   }
 }
 </script>
