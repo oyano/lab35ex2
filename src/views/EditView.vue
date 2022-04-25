@@ -35,6 +35,7 @@ export default {
   },
   created() {
     this.GetData()
+    console.log(this.item)
   },
   methods:{
     goBack(){
@@ -43,9 +44,9 @@ export default {
     getImg(img){
       return require('../assets/' + img)
     },
-    async GetData(){
+    GetData(){
       let id = this.$route.params['id']
-      await this.$http.get(`http://localhost:3000/items`,{params:{id: id}})
+      this.$http.get(`http://localhost:3000/items`,{params:{id: id}})
           .then(res => res.json())
           .then(res => this.item = res[0])
     },

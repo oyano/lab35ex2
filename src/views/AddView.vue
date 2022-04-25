@@ -36,16 +36,18 @@ export default {
       this.$router.push('/catalog')
     },
     IsMinValue(){
-      if(this.item.price < this.minValue){
-        this.item.price = this.minValue
-      }
+      setTimeout(()=>{
+        if(this.item.price < this.minValue){
+          this.item.price = this.minValue
+        }
+      },1500)
     },
     IsNotEmpty(){
       setTimeout(()=>{
         if(this.item.name === '') {
           this.item.name = 'Название'
         }
-      },1000)
+      },1500)
     },
   }
 }
